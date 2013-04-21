@@ -27,11 +27,6 @@ public class BinDump {
         System.out.println("Usage: java " + BinDump.class.getSimpleName() + " filename [nbBytesPerLine]");
     }
 
-    private static int redress(Byte b) {
-        int i = b;
-        return i < 0 ? i + 256 : i;
-    }
-
     /** Read the given binary file, and return its contents as a byte array. */
     private static void readAndPrint(String aInputFileName, int bytesPerLine) {
         System.out.println("Reading in binary file named : " + aInputFileName);
@@ -70,7 +65,8 @@ public class BinDump {
     }
 
     private static void print(Byte b, int bytesPerLine) {
-        String res = Integer.toBinaryString(redress(b));
+        int i = b;
+        String res = Integer.toBinaryString(i < 0 ? i + 256 : i);
         while (res.length() < 8) {
             res = "0" + res;
         }
