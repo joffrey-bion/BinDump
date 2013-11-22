@@ -1,4 +1,4 @@
-package com.jbion.utils.bindump;
+package com.jbion.bindump;
 
 import java.io.BufferedInputStream;
 import java.io.File;
