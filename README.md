@@ -12,12 +12,12 @@ java org.hildan.tools.bindump.BinDump <filename> [nbBytesPerLine]
 
 Using the provided runnable JAR file:
 ```
-java -jar bindump.jar <filename> [nbBytesPerLine]
+java -jar bindump-<version>.jar <filename> [nbBytesPerLine]
 ```
 
 Using the provided Windows executable file:
 ```
-bindump.exe <filename> [nbBytesPerLine]
+bindump-<version>.exe <filename> [nbBytesPerLine]
 ```
 
 ### Example
