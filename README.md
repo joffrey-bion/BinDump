@@ -5,11 +5,17 @@ A binary file dumper. This is a simple program to display the bits of a binary f
 
 ### Usage
 
+You can run the program in 3 different ways, as it is a java program:
+
 `java org.hildan.tools.bindump.BinDump <filename> [nbBytesPerLine]`
 
 Or using the provided runnable JAR file:
 
-`java -jar BinDump.jar <filename> [nbBytesPerLine]`
+`java -jar bindump.jar <filename> [nbBytesPerLine]`
+
+Or using the provided Windows executable file:
+
+`bindump.exe <filename> [nbBytesPerLine]`
 
 ### Example
 
