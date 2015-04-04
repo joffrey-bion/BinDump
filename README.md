@@ -5,7 +5,7 @@ A binary file dumper. This is a simple program to display the bits of a binary f
 
 ### Usage
 
-`java com.jbion.bindump.BinDump <filename> [nbBytesPerLine]`
+`java org.hildan.tools.bindump.BinDump <filename> [nbBytesPerLine]`
 
 Or using the provided runnable JAR file:
 
