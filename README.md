@@ -6,16 +6,19 @@ A binary file dumper. This is a simple program to display the bits of a binary f
 ### Usage
 
 You can run the program in 3 different ways, as it is a java program:
+```
+java org.hildan.tools.bindump.BinDump <filename> [nbBytesPerLine]
+```
 
-`java org.hildan.tools.bindump.BinDump <filename> [nbBytesPerLine]`
+Using the provided runnable JAR file:
+```
+java -jar bindump.jar <filename> [nbBytesPerLine]
+```
 
-Or using the provided runnable JAR file:
-
-`java -jar bindump.jar <filename> [nbBytesPerLine]`
-
-Or using the provided Windows executable file:
-
-`bindump.exe <filename> [nbBytesPerLine]`
+Using the provided Windows executable file:
+```
+bindump.exe <filename> [nbBytesPerLine]
+```
 
 ### Example
 
@@ -26,7 +29,7 @@ abcdefg
 
 Here is how to dump it with BinDump (no option):
 ```
-java -jar BinDump.jar testfile.txt
+bindump-<version>.exe testfile.txt
 ```
 
 Output:
@@ -50,7 +53,7 @@ Num bytes read: 10
 
 If 1 byte per line produces too many lines, you may add the number of bytes per line as a second argument:
 ```
-java -jar BinDump.jar testfile.txt 2
+bindump-<version>.exe testfile.txt 2
 ```
 
 Output:
