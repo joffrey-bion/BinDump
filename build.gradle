@@ -35,6 +35,7 @@ launch4j {
     mainClassName = project.mainClassName
     headerType = "console"
     jar = 'lib/' + project.jar.archiveName
+    outfile = project.name + '-' + project.version + '.exe'
     windowTitle = project.name
 }
 
