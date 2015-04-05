@@ -22,13 +22,7 @@ group = 'org.hildan.tools'
 version = '1.0'
 sourceCompatibility = '1.7'
 
-mainClassName = "org.hildan.tools.BinDump"
-
-// defines what to distribute (jar and exe)
-artifacts {
-    archives jar
-    archives file(buildDir.name + '/' + launch4j.outputDir + '/' + launch4j.outfile)
-}
+mainClassName = "org.hildan.tools.bindump.BinDump"
 
 // wraps the executable jar into an exe file
 launch4j {
@@ -38,6 +32,14 @@ launch4j {
     outfile = project.name + '-' + project.version + '.exe'
     windowTitle = project.name
 }
+
+// defines what to distribute (jar and exe)
+artifacts {
+    archives jar
+    archives file(buildDir.name + '/' + launch4j.outputDir + '/' + launch4j.outfile)
+}
+
+bintrayUpload.dependsOn tasks.launch4j
 
 bintray {
 	user = project.bintrayUsername // taken from gradle.properties
@@ -51,9 +53,10 @@ bintray {
 	    name = project.name
 	    desc = 'Small tool that prints the bits of a file. Useful to debug programs manipulating files at binary level.'
 	    
-	    websiteUrl = 'https://github.com/joffrey-bion/bindump'
-	    issueTrackerUrl = 'https://github.com/joffrey-bion/bindump/issues'
-	    vcsUrl = 'https://github.com/joffrey-bion/bindump.git'
+	    String githubRepoName = 'bindump'
+	    websiteUrl = 'https://github.com/joffrey-bion/' + githubRepoName
+	    issueTrackerUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '/issues'
+	    vcsUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '.git'
 	    
 	    licenses = ['MIT']
 	    labels = ['binary', 'bin', 'dump', 'console']
