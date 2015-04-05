@@ -29,6 +29,7 @@ launch4j {
     mainClassName = project.mainClassName
     headerType = "console"
     jar = 'lib/' + project.jar.archiveName
+    icon = '../resources/main/bindump.ico'
     outfile = project.name + '-' + project.version + '.exe'
     windowTitle = project.name
 }
