@@ -1,17 +1,11 @@
-// loads the launch4j dependency for build time
+// launch4j is used to package the program in an exe file
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'edu.sc.seis.gradle:launch4j:1.0.6'
-    }
+    repositories { mavenCentral() }
+    dependencies { classpath 'edu.sc.seis.gradle:launch4j:1.0.6' }
 }
 
-plugins {
-    id "com.jfrog.bintray" version "1.0"
-}
+// bintray plugin is used to upload artifacts to a bintray repo
+plugins { id "com.jfrog.bintray" version "1.0" }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -43,29 +37,24 @@ artifacts {
 bintrayUpload.dependsOn tasks.launch4j
 
 bintray {
-	user = project.bintrayUsername // taken from gradle.properties
-	key = project.bintrayApiKey // taken from gradle.properties
-	configurations = ['archives']
-	
+    user = project.bintrayUsername // taken from gradle.properties
+    key = project.bintrayApiKey // taken from gradle.properties
+    configurations = ['archives']
+
     publish = true // the version should be auto published after an upload
-	
-	pkg {
-	    repo = project.bintrayRepoApps // taken from gradle.properties
-	    name = project.name
-	    desc = 'Small tool that prints the bits of a file. Useful to debug programs manipulating files at binary level.'
-	    
-	    String githubRepoName = 'bindump'
-	    websiteUrl = 'https://github.com/joffrey-bion/' + githubRepoName
-	    issueTrackerUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '/issues'
-	    vcsUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '.git'
-	    
-	    licenses = ['MIT']
-	    labels = ['binary', 'bin', 'dump', 'console']
-	    
-	    publicDownloadNumbers = false
-	    
-	    version {
-	        name = project.version // Bintray logical version name
-	    }
-	}
+
+    pkg {
+        repo = project.bintrayRepoApps // taken from gradle.properties
+        name = project.name
+        desc = 'Small tool that prints the bits of a file. Useful to debug programs manipulating files at binary level.'
+        labels = ['binary', 'bin', 'dump', 'console']
+
+        String githubRepoName = project.name
+        websiteUrl = 'https://github.com/joffrey-bion/' + githubRepoName
+        issueTrackerUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '/issues'
+        vcsUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '.git'
+
+        licenses = ['MIT']
+        version { gpg { sign = true } }
+    }
 }
