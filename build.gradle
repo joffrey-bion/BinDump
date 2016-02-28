@@ -1,20 +1,16 @@
-// launch4j is used to package the program in an exe file
-buildscript {
-    repositories { mavenCentral() }
-    dependencies { classpath 'edu.sc.seis.gradle:launch4j:1.0.6' }
+plugins {
+    id "com.jfrog.bintray" version "1.0"
+    id "edu.sc.seis.launch4j" version "1.6.1"
 }
-
-// bintray plugin is used to upload artifacts to a bintray repo
-plugins { id "com.jfrog.bintray" version "1.0" }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'launch4j'
+apply plugin: 'idea'
 apply plugin: 'application'
 
 group = 'org.hildan.tools'
 version = '1.0'
-sourceCompatibility = '1.7'
+description = 'Small tool that prints the bits of a file. Useful to debug programs manipulating files at binary level.'
 
 mainClassName = "org.hildan.tools.bindump.BinDump"
 
@@ -37,16 +33,16 @@ artifacts {
 bintrayUpload.dependsOn tasks.launch4j
 
 bintray {
-    user = project.bintrayUsername // taken from gradle.properties
-    key = project.bintrayApiKey // taken from gradle.properties
+    user = project.hasProperty('bintrayUsername') ? project.bintrayUsername : ''
+    key = project.hasProperty('bintrayApiKey') ? project.bintrayApiKey : ''
     configurations = ['archives']
 
     publish = true // the version should be auto published after an upload
 
     pkg {
-        repo = project.bintrayRepoApps // taken from gradle.properties
+        repo = project.hasProperty('bintrayRepoApps') ? project.bintrayRepoApps : ''
         name = project.name
-        desc = 'Small tool that prints the bits of a file. Useful to debug programs manipulating files at binary level.'
+        desc = project.description
         labels = ['binary', 'bin', 'dump', 'console']
 
         String githubRepoName = project.name
@@ -55,6 +51,9 @@ bintray {
         vcsUrl = 'https://github.com/joffrey-bion/' + githubRepoName + '.git'
 
         licenses = ['MIT']
-        version { gpg { sign = true } }
+        version {
+            vcsTag = 'v' + project.version
+            gpg { sign = true }
+        }
     }
 }
