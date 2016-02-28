@@ -1,9 +1,12 @@
-BinDump
-=======
+# BinDump
+[![Bintray](https://img.shields.io/bintray/v/joffrey-bion/applications/bindump.svg)](https://bintray.com/joffrey-bion/applications/bindump/_latestVersion)
+[![Travis Build](https://img.shields.io/travis/joffrey-bion/bindump/master.svg)](https://travis-ci.org/joffrey-bion/bindump)
+[![Dependency Status](https://www.versioneye.com/user/projects/56d2f560157a69140da0019e/badge.svg)](https://www.versioneye.com/user/projects/56d2f560157a69140da0019e)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/joffrey-bion/bindump/blob/master/LICENSE)
 
 A binary file dumper. This is a simple program to display the bits of a binary file. Especially useful to debug encoding programs.
 
-### Usage
+## Usage
 
 You can run the program in 3 different ways, as it is a java program:
 ```
@@ -20,7 +23,7 @@ Using the provided Windows executable file:
 bindump-<version>.exe <filename> [nbBytesPerLine]
 ```
 
-### Example
+## Example
 
 Here is an example of a short UTF-8 text file named `testfile.txt`:
 ```
@@ -49,7 +52,7 @@ File size: 10
 Num bytes read: 10
 ```
 
-#### Bytes per line option
+### Bytes per line option
 
 If 1 byte per line produces too many lines, you may add the number of bytes per line as a second argument:
 ```
@@ -67,3 +70,7 @@ File size: 10
 0110011001100111
 Num bytes read: 10
 ```
+
+## License
+
+Code released under [the MIT license](https://github.com/joffrey-bion/bindump/blob/master/LICENSE)
