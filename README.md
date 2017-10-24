@@ -1,7 +1,6 @@
 # BinDump
 [![Bintray](https://img.shields.io/bintray/v/joffrey-bion/applications/bindump.svg)](https://bintray.com/joffrey-bion/applications/bindump/_latestVersion)
 [![Travis Build](https://img.shields.io/travis/joffrey-bion/bindump/master.svg)](https://travis-ci.org/joffrey-bion/bindump)
-[![Dependency Status](https://www.versioneye.com/user/projects/56d2f560157a69140da0019e/badge.svg)](https://www.versioneye.com/user/projects/56d2f560157a69140da0019e)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/joffrey-bion/bindump/blob/master/LICENSE)
 
 A binary file dumper. This is a simple program to display the bits of a binary file. Especially useful to debug encoding programs.
